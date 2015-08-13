@@ -1,16 +1,35 @@
 <html>
 <head>
-
+<title>RentSplitter</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
+var calculateRent = function() {
+  $.ajax({
+    "url": "splitRent",
+    "data": {
+      "user_input": $("#data").val(),
+    },
+    "success": function(data, textStatus, jqXHR) {
+      alert(data);
+    },
+    "error": function(jqXHR, textStatus, errorThrown) {
+      alert("Error: " + errorThrown);
+    }
+  });
+}
 </script>
 </head>
 <body>
 <div>
-<textarea>
-default text
+<textarea id="data" style="width: 500px; height: 200px;">
+{
+    "alice": [10, 30, 50],
+    "bob": [100, 300, 200],
+    "charlie": [500, 3, 2],
+}
 </textarea>
 </div>
-<button onclick="alert('clicked');">Go</button>
+<button onclick="calculateRent();">Go</button>
 
 </body>
 
