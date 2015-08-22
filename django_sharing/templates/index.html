@@ -1,36 +1,68 @@
-<html>
-<head>
-<title>RentSplitter</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-var calculateRent = function() {
-  $.ajax({
-    "url": "splitRent",
-    "data": {
-      "user_input": $("#data").val(),
-    },
-    "success": function(data, textStatus, jqXHR) {
-      alert(data);
-    },
-    "error": function(jqXHR, textStatus, errorThrown) {
-      alert("Error: " + errorThrown);
-    }
-  });
-}
-</script>
-</head>
-<body>
-<div>
-<textarea id="data" style="width: 500px; height: 200px;">
-{
-    "alice": [10, 30, 50],
-    "bob": [100, 300, 200],
-    "charlie": [500, 3, 2],
-}
-</textarea>
-</div>
-<button onclick="calculateRent();">Go</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- This template originally from Bootstrap -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</body>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Robust Rental Harmony</title>
 
+    <!-- Bootstrap -->
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <title>RentDivision</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+    <script src="static/index.js"></script>
+  </head>
+  <body style="margin: 20px;">
+    <!--<h2>Fancy setup</h2>
+        <p>Total rent per month: <input id="totalRent"></input></p>
+    <p>Number of rooms: <input id="numRooms" value="3"></input></p>
+    <table id="preferencesTable">
+      <tr class="header"><td>Preferences</td></tr>
+    </table>
+    <button onclick="calculateFancyRent();">Go</button>
+    <div>
+      <hr/>
+      <h2>Simpler setup</h2>-->
+    <h1>Robust Rental Harmony</h1>
+    <p>Refer to <a href="https://github.com/critcha/rentdivision/">https://github.com/critcha/rentdivision/</a>.
+      <hr>
+        <div class="container">
+          <div class="col-md-2">Total rent:</div>
+          <div class="col-md-4"><input type="text" id="totalRent" value="1000"></input></div>
+        </div>
+        <div class="container" style="margin-top: 20px;">
+          <div class="col-md-2">Preferences:</div>
+          <div class="col-md-4"><textarea id="preferences" style="width: 500px; height: 200px;">{
+  "alice": [10, 30, 500],
+  "bob": [100, 300, 200],
+  "charlie": [500, 3, 2]
+}
+            </textarea></div>
+        </div>
+        <div class="container" style="margin-top: 20px;">
+          <div class="col-md-3 col-md-offset-2">
+            <button onclick="calculateSimpleRent();" class="btn btn-default">Go</button>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 20px;">
+          <div class="col-md-10 col-md-offset-2">
+            <pre id="simpleResults" style="display:none;"></pre></div>
+        </div>
+  </body>
 </html>
