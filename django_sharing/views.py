@@ -16,8 +16,7 @@ def main(request):
 def split_rent(request):
     """Calculate the split rent using Critch's code."""
     preferences = request.GET.get("preferences")
-    # total_rent = int(request.GET.get("totalRent"))
-    total_rent = 3000
+    total_rent = int(request.GET.get("totalRent"))
     pydict = json.loads(preferences)
     values = pd.DataFrame(pydict).T
 
