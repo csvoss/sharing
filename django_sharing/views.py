@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import Template, Context
 import pandas as pd
+import simplejson
 
 from rentdivision import robust_rental_harmony
 
